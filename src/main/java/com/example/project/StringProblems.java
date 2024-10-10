@@ -1,3 +1,5 @@
+package com.example.project;
+
 public class StringProblems{
     //empty constructor
     public StringProblems(){}
@@ -9,7 +11,8 @@ public class StringProblems{
     // endsLy("oddy") → false
     public boolean endsLy(String x){
             //implement code here
-        return x.substring(x.length()-1).equals("ly");
+        
+        return x.substring(x.length()-2).equals("ly");
     }
 
 
@@ -76,7 +79,7 @@ public class StringProblems{
     // fizzString("fig") → "Fizz"
     // fizzString("dib") → "Buzz"
     // fizzString("fib") → "FizzBuzz"
-    public String fizzString(String s1){
+    public String testfizzString(String s1){
         boolean fizz = false;
         boolean buzz = false;
         fizz = s1.substring(0, 1).equals("f");
@@ -106,7 +109,22 @@ public class StringProblems{
     // fizzString2(1) → "1!"
     // fizzString2(2) → "2!"
     // fizzString2(3) → "Fizz!"
-    public String fizzString2(int x){
-        return "";
+    public String testfizzString2(int x){
+        boolean fizz = x % 3 == 0;
+        boolean buzz = x % 5 == 0;
+
+        if (fizz && buzz){
+            return "FizzBuzz";
+        }
+        else if (fizz){
+            return "Fizz";
+        }
+        else if (buzz){
+            return "Buzz";
+        }
+        else{
+            return x + "!";
+        }
+
     }
 }
