@@ -9,7 +9,7 @@ public class StringProblems{
     // endsLy("oddy") → false
     public boolean endsLy(String x){
             //implement code here
-        return false;
+        return x.substring(x.length()-1).equals("ly");
     }
 
 
@@ -21,7 +21,10 @@ public class StringProblems{
     // conCat("abc", "") → "abc"
     public String conCat(String s1, String s2){
         //implement code here
-        return "";
+        if(s1.substring(s1.length()).equals(s2.substring(0,1))){
+            s1 = s1.substring(0, s1.length());
+        }
+        return s1 + s2;
     }
 
     // Given a string, return a version without the first 2 chars. 
@@ -32,7 +35,17 @@ public class StringProblems{
     // deFront("away") → "aay"
     public String deFont(String s1){
         //implement code here
-        return "";
+        String outStr = s1;
+        if(!s1.substring(0,1).equals("a")){
+            outStr = s1.substring(1);
+            if(!s1.substring(1,2).equals("b")){
+                outStr = outStr.substring(1);
+            }
+        }
+        else if (!s1.substring(1,2).equals("b")){
+            outStr = s1.substring(0,1) + s1.substring(2, s1.length());
+        }
+        return outStr;
     }
 
     
@@ -43,7 +56,13 @@ public class StringProblems{
     // withoutX("xHi") → "Hi"
     // withoutX("Hxix") → "Hxi"
     public String withoutX(String s1){
-        return "";
+        if (s1.substring(0, 1).equals("x")){
+            s1 = s1.substring(1);
+        }
+        if (s1.substring(s1.length()-1, s1.length()).equals("x")){
+            s1 = s1.substring(0, s1.length()-1);
+        }
+        return s1;
     }
 
     // Given a string str, if the string starts with "f" return "Fizz".
@@ -54,6 +73,15 @@ public class StringProblems{
     // fizzString("dib") → "Buzz"
     // fizzString("fib") → "FizzBuzz"
     public String fizzString(String s1){
+        boolean fizz = false;
+        boolean buzz = false;
+        fizz = s1.substring(0, 1).equals("f");
+        buzz = s1.substring(0, 1).equals("b");
+
+        if(fizz && buzz){
+            return "FizzBuzz";
+        }
+
         return "";
     }
 
