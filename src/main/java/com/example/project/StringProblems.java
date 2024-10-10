@@ -11,7 +11,9 @@ public class StringProblems{
     // endsLy("oddy") → false
     public boolean endsLy(String x){
             //implement code here
-        
+        if (x.length() < 2){
+            return false;
+        }
         return x.substring(x.length()-2).equals("ly");
     }
 
@@ -24,8 +26,14 @@ public class StringProblems{
     // conCat("abc", "") → "abc"
     public String conCat(String s1, String s2){
         //implement code here
-        if(s1.substring(s1.length()).equals(s2.substring(0,1))){
-            s1 = s1.substring(0, s1.length());
+        if (s1.length() == 0){
+            return s2;
+        }
+        else if (s2.length() == 0){
+            return s1;
+        }
+        else if(s1.substring(s1.length()-1).equals(s2.substring(0,1))){
+            s1 = s1.substring(0, s1.length()-1);
         }
         return s1 + s2;
     }
@@ -79,11 +87,11 @@ public class StringProblems{
     // fizzString("fig") → "Fizz"
     // fizzString("dib") → "Buzz"
     // fizzString("fib") → "FizzBuzz"
-    public String testfizzString(String s1){
+    public String fizzString(String s1){
         boolean fizz = false;
         boolean buzz = false;
         fizz = s1.substring(0, 1).equals("f");
-        buzz = s1.substring(0, 1).equals("b");
+        buzz = s1.substring(s1.length()-1, s1.length()).equals("b");
 
         if(fizz && buzz){
             return "FizzBuzz";
@@ -109,18 +117,18 @@ public class StringProblems{
     // fizzString2(1) → "1!"
     // fizzString2(2) → "2!"
     // fizzString2(3) → "Fizz!"
-    public String testfizzString2(int x){
+    public String fizzString2(int x){
         boolean fizz = x % 3 == 0;
         boolean buzz = x % 5 == 0;
 
         if (fizz && buzz){
-            return "FizzBuzz";
+            return "FizzBuzz!";
         }
         else if (fizz){
-            return "Fizz";
+            return "Fizz!";
         }
         else if (buzz){
-            return "Buzz";
+            return "Buzz!";
         }
         else{
             return x + "!";
